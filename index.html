@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - CISSE Sadia | BUT2 TI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --info: #3498db;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .profile {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+            color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: -30px auto 40px;
+            position: relative;
+            max-width: 800px;
+        }
+        
+        .section {
+            padding: 40px 0;
+        }
+        
+        .section-alt {
+            background-color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-style: italic;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-meta {
+            margin: 15px 0;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .meta-icon {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .stage-gallery {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-style: italic;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item::after {
+            content: '\f06e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+            border-radius: 8px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 20px;
+            right: -12px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            padding: 10px 20px;
+            background: white;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-tab.active {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .project-gallery-title {
+            font-size: 1.2rem;
+            margin: 30px 0 15px;
+            color: var(--primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .stage-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .upload-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px dashed #ccc;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            .stage-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                left: 20px;
+            }
+            
+            .gallery, .stage-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <h1>Portefolio - CISSE Sadia</h1>
+                <p>BUT2 Technologies de l'Information</p>
+                <p>Année universitaire 2024-2025</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <h2>Introduction</h2>
+            <p>Je me nomme Sadia CISSE, étudiant en BUT2 Technologies de l'Information. Depuis le début de ma formation, j'ai travaillé sur plusieurs projets différents : développement informatique, analyse et traitement de données, réseau et administration système. Chaque expérience m'a permis d'apprendre de nouvelles choses et de devenir plus polyvalent.</p>
+            <p>Mon objectif est de consolider mes acquis en BUT3 et de m'orienter vers un métier dans l'analyse et la valorisation de données.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Mes Projets (SAÉ)</h2>
+            
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-tab="projet1">Projet 1</div>
+                <div class="nav-tab" data-tab="projet2">Projet 2</div>
+                <div class="nav-tab" data-tab="projet3">Projet 3</div>
+                <div class="nav-tab" data-tab="projet4">Projet 4</div>
+            </div>
+            
+            <div id="projet1" class="tab-content active">
+                <h3>Acquisition Automatique de Données 3GPP</h3>
+                <p>Dans ce projet, le but était d’automatiser la collecte, l’analyse et la visualisation de documents techniques.
+Concrètement, j’ai développé un backend en Django (Python), une base de données SQLite et j’ai utilisé du multithreading pour accélérer le téléchargement des fichiers via FTP. J’ai aussi intégré un LLM (Groq) pour résumer et classer les documents.
+Enfin, j’ai mis en place un tableau de bord interactif avec des graphiques et la possibilité d’exporter les données en Excel.</p>
+
+<p>👉 Ce projet m’a beaucoup appris : j’ai découvert la puissance de l’automatisation et des LLM, j’ai renforcé mes compétences en gestion de projet agile et j’ai mieux compris comment déployer une application web complète.</p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">✅</span>
+                        <span>Ce qui a bien marché : la mise en place d’un workflow complet (collecte → traitement → visualisation).</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⚠️</span>
+                        <span>Ce qui a été difficile : gérer l’asynchrone avec Django-Q.</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🎁</span>
+                        <span>Bonne surprise : voir qu’un LLM pouvait réellement aider à exploiter des documents techniques.</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🔑</span>
+                        <span>Traitement de gros volumes de données</span>
+                    </div>
+                </div>
+                
+                <div class="project-gallery-title">Galerie du projet</div>
+                <div class="gallery">
+                    <div class="gallery-item" data-image="reporting2.png" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet1/reporting2.jpg');">
+                        Interface principale du tableau de bord
+                    </div>
+                    <div class="gallery-item" data-image="code_collect.png" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet1/code_colllect.png');">
+                        script python des données collectées
+                    </div>
+                    <div class="gallery-item" data-image="reporting.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet1/reporting.jpg');">
+                        
+                    </div>
+                    <div class="gallery-item" data-image="capture_base3.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet1/capture base3.jpg');">
+                        Résultats de l'analyse LLM
+                    </div>
+                </div>
+                
+               
+            </div>
+            
+            <div id="projet2" class="tab-content">
+                <h3>Application de santé 'Le-health'</h3>
+                <p>Ici, nous devions créer une application web multifonctionnelle qui combinait un site d’achat en ligne et une fonctionnalité de téléconsultation.
+J’ai participé à la modélisation d’une base de données avec 17 entités (PostgreSQL), au développement full-stack (PHP, frontend + backend), et à la conception d’interfaces utilisateurs avec Figma. Le travail en groupe nous a obligés à bien gérer la versioning avec Git et à nous répartir les rôles.</p>
+                <p>👉 Ce projet m’a permis de progresser énormément en UX/UI et en développement web complet. J’ai aussi appris à mieux travailler en équipe sur un projet complexe.</p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">✅</span>
+                        <span>Points forts : vraie expérience en full-stack et bonne organisation de groupe.</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⚠️</span>
+                        <span>Complexité de la base de données</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🎁</span>
+                        <span>Intérêt pour la conception d'interface</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🔑</span>
+                        <span>Travail en équipe sur un projet complet</span>
+                    </div>
+                </div>
+                
+                <div class="project-gallery-title">Galerie du projet</div>
+                <div class="gallery">
+                    <div class="gallery-item" data-image="ehealth_accueil.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet2/WhatsApp Image 2025-08-28 à 15.30.55_8fa528d5.jpg');">
+                        Page d'accueil avec catégories
+                    </div>
+                    <div class="gallery-item" data-image="ehealth_consultation.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet2/WhatsApp Image 2025-08-28 à 15.30.55_da850193.jpg');">
+                        Interface de consultation santé
+                    </div>
+                    <div class="gallery-item" data-image="ehealth_conseils.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet2/WhatsApp Image 2025-08-28 à 15.30.55_55b72f8b.jpg');">
+                        Page de conseils santé
+                    </div>
+                    <div class="gallery-item" data-image="ehealth_panier.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet2/WhatsApp Image 2025-08-28 à 15.30.56_af201026.jpg');">
+                        Panier utilisateur
+                    </div>
+                </div>
+            </div>
+            
+            <div id="projet3" class="tab-content">
+                <h3>Enquête sur les diplômés BUT CJ</h3>
+                <p>Conception de questionnaire, entretiens avec la cheffe de département, analyse qualitative et restitution des résultats sous forme de rapport et schémas.</p>
+                <p>👉 J’ai beaucoup appris sur la communication, la gestion d’entretien et la manière de transformer des données qualitatives en conclusions claires.</p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">✅</span>
+                        <span>Bonne structuration et restitution claire</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⚠️</span>
+                        <span>Gestion du temps d'entretien</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🎁</span>
+                        <span>Richesse des retours obtenus</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🔑</span>
+                        <span>Acquis : être capable de mener une enquête terrain et de produire une analyse utile.</span>
+                    </div>
+                </div>
+                
+                <div class="project-gallery-title">Galerie du projet</div>
+                <div class="gallery">
+                    <div class="gallery-item" data-image="enquete_questionnaire.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet3/Capture 2025-09-03 215115.png');">
+                        Questionnaire conçu pour l'étude
+                    </div>
+                    <div class="gallery-item" data-image="enquete_entretien.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet3/Capture 2025-09-03 215256.png');">
+                        Extrait d'entretien avec la cheffe de département
+                    </div>
+                    <div class="gallery-item" data-image="enquete_analyse.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet3/Image 3 sept. 2025, 22_28_37.png');">
+                        
+                    </div>
+                    <div class="gallery-item" data-image="enquete_schemas.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet3/Image 3 sept. 2025, 22_28_41.png');">
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div id="projet4" class="tab-content">
+                <h3>Analyse des habitudes alimentaires étudiantes</h3>
+                <p>Analyse statistique sur la fréquentation du CROUS par les étudiants non boursiers. Traitement des données avec R et ggplot2, calculs statistiques (moyennes, variances, IC), rédaction d'un rapport avec préconisations.</p>
+                <p>👉 Ce projet m’a donné une vraie expérience en statistiques appliquées, et j’ai appris à identifier les biais possibles dans les enquêtes.</p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">✅</span>
+                        <span>Ce qui a bien marché : produire des graphiques clairs et des résultats concrets.</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⚠️</span>
+                        <span>Gestion des biais d'échantillonnage</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🎁</span>
+                        <span>Confiance en mes capacités d'analyse</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🔑</span>
+                        <span>Expérience solide en data analysis</span>
+                    </div>
+                </div>
+                
+                <div class="project-gallery-title">Galerie du projet</div>
+                <div class="gallery">
+                    <div class="gallery-item" data-image="analyse_ggplot.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet4/Capture2025-09-03 215903.png');">
+                        Visualisation des données avec ggplot2
+                    </div>
+                    <div class="gallery-item" data-image="analyse_calculs.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet4/Capture 2025-09-03 220257.png');">
+                        Calculs statistiques (moyennes, variances)
+                    </div>
+                    <div class="gallery-item" data-image="analyse_intervalle.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet4/Capture 2025-09-03 220130.png');">
+                        
+                    </div>
+                    <div class="gallery-item" data-image="analyse_recommandations.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/projet4/Capture 2025-09-03 220412.png');">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section section-alt">
+            <h2>Synthèse de mes compétences</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Réaliser</h3>
+                    <ul class="skill-list">
+                        <li>Développement d'applications (Django, PHP)</li>
+                        <li>Intégration de fonctionnalités innovantes (LLM, automatisation)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Optimiser</h3>
+                    <ul class="skill-list">
+                        <li>Modélisation et optimisation de bases de données (PostgreSQL, SQLite)</li>
+                        <li>Scripts multithread</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Administrer</h3>
+                    <ul class="skill-list">
+                        <li>Gestion de serveurs (Cobbler, Puppet)</li>
+                        <li>Virtualisation (OpenNebula)</li>
+                        <li>Sauvegardes, restauration et gestion de la donnée (TINA, SAN)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Gérer</h3>
+                    <ul class="skill-list">
+                        <li>Organisation agile</li>
+                        <li>Enquêtes statistiques et qualitatives</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Conduire</h3>
+                    <ul class="skill-list">
+                        <li>Pilotage de projets en groupe</li>
+                        <li>Gestion des rôles</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Collaborer</h3>
+                    <ul class="skill-list">
+                        <li>Travail en équipe multidisciplinaire</li>
+                        <li>Communication et restitution orale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="stage-section">
+                <h2>Mon stage - DGFiP (ESI Paris)</h2>
+                <p>Mon stage m'a permis de découvrir les métiers de l'exploitation dans un environnement exigeant (systèmes, réseaux, stockage, sauvegarde, restauration et gestion de la donnée).</p>
+                <p>J'ai participé à l'administration réseau (DNS, VPN, NAT), à la gestion de serveurs (Cobbler, Puppet), à la virtualisation (OpenNebula), aux sauvegardes et stockage (TINA, SAN), et à des projets de migration et sécurisation.</p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">✅</span>
+                        <span>Immersion professionnelle riche et formatrice</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">⚠️</span>
+                        <span>Complexité des environnements techniques</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🎁</span>
+                        <span>Apprentissage rapide en équipe</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">🔑</span>
+                        <span>Compréhension des enjeux de sécurité et continuité de service</span>
+                    </div>
+                </div>
+                
+                <div class="project-gallery-title">Galerie du stage</div>
+                <div class="gallery stage-gallery">
+                    <div class="gallery-item" data-image="stage_reseau.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Cap 2025-08-11 120637.png');">
+                        Grappe de serveurs DNS (maitre et esclaves)
+                    </div>
+                    <div class="gallery-item" data-image="stage_cobbler.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Capture 2025-08-11 120708.png');">
+                        Principe de fonctionnement des serveurs maitre et esclaves
+                    </div>
+                    <div class="gallery-item" data-image="stage_puppet.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Capture 2025-07-16 100534.png');">
+                        Serveurs de deploiement Cobbler et Puppet
+                    </div>
+                    <div class="gallery-item" data-image="stage_opennebula.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Capture 2025-07-18 100011.png');">
+                        Virtualisation OpenNebula
+                    </div>
+                    <div class="gallery-item" data-image="stage_tina.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Capture 2025-07-18 100011.png');">
+                        
+                    </div>
+                    <div class="gallery-item" data-image="stage_san.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Capture 2025-07-18 102046.png');">
+                        Sauvegarde de données Time Navigator (TiNa)
+                    </div>
+                    <div class="gallery-item" data-image="stage_migration.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Image1.png');">
+                        Stockage SAN
+                    </div>
+                    <div class="gallery-item" data-image="stage_securite.jpg" style="background-image: url('D:/Portefolio_CISSE_Sadia/images/stage/Capture_hitachi.png');">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section section-alt">
+            <h2>Conclusion</h2>
+            <p>Cette année en BUT Passerelle TI m'a permis d'énormément progressé : techniquement (programmation, données, systèmes et réseaux), humainement (collaboration, adaptation), et professionnellement (expérience en environnement réel).</p>
+            <p>Je retiens que je suis capable de mener un projet complet, de travailler efficacement en équipe et de tirer parti des données pour en faire un outil de décision.</p>
+            <p>La suite logique pour moi est de continuer en BUT3 Science des Données et de me spécialiser dans l'analyse et la valorisation des données, tout en gardant ma polyvalence comme un atout.</p>
+        </div>
+    </div>
+    
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 CISSE Sadia - Portfolio Professionnel</p>
+            <p>BUT2 Technologies de l'Information - IUT de Villetaneuse</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const captionText = document.getElementById('caption');
+            const closeModal = document.querySelector('.close');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            // Gestion des onglets
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab).classList.add('active');
+                });
+            });
+            
+            // Gestion de la modale d'images
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                    // Utiliser l'image d'arrière-plan pour la modale
+                    const bgImage = item.style.backgroundImage;
+                    modalImg.src = bgImage.replace('url("', '').replace('")', '');
+                    captionText.innerHTML = item.textContent;
+                });
+            });
+            
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
