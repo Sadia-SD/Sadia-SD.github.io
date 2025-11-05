@@ -60,6 +60,17 @@
             position: relative;
             z-index: 1;
         }
+
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            margin: 20px auto 0;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
         
         h1 {
             font-size: 2.5rem;
@@ -445,6 +456,8 @@
         <div class="container">
             <div class="profile">
                 <h1>Portefolio - CISSE Sadia</h1>
+                <!-- Photo de profil -->
+                <img src="images/profil_sadia.jpg" alt="Photo de profil de Sadia CISSE" class="profile-photo">
                 <p>BUT2 Technologies de l'Information</p>
                 <p>Année universitaire 2024-2025</p>
             </div>
@@ -454,8 +467,11 @@
     <div class="container">
         <div class="intro">
             <h2>Introduction</h2>
-            <p>Je me nomme Sadia CISSE, étudiant en BUT2 Technologies de l'Information. Depuis le début de ma formation, j'ai travaillé sur plusieurs projets différents : développement informatique, analyse et traitement de données, réseau et administration système. Chaque expérience m'a permis d'apprendre de nouvelles choses et de devenir plus polyvalent.</p>
-            <p>Mon objectif est de consolider mes acquis en BUT3 et de m'orienter vers un métier dans l'analyse et la valorisation de données.</p>
+            <p>Je me nomme Sadia CISSE, étudiante en BUT2 Technologies de l'Information (parcours Passerelle) à l'IUT de Villetaneuse. Après une première orientation dans un autre cursus, j'ai choisi de me réorienter vers l'informatique pour travailler dans un domaine où je peux à la fois résoudre des problèmes concrets et manipuler des données.</p>
+            <p>Le BUT Technologies de l'Information est une formation pluridisciplinaire qui combine plusieurs matières clés : développement (Python, PHP, Java), bases de données et SQL, administration systèmes et réseaux, statistiques, gestion de projet et communication professionnelle. Cette diversité me permet de comprendre l'ensemble de la chaîne de traitement de l'information, de la collecte de la donnée jusqu'à sa valorisation.</p>
+            <p>J'ai choisi ce parcours car il correspond à ma manière de travailler : j'aime analyser, structurer, tester et améliorer des solutions. Les projets menés en équipe, les SAÉ et les travaux pratiques m'ont permis d'apprendre par la pratique et de confirmer mon intérêt pour l'analyse et la valorisation de données.</p>
+            <p>Au-delà des compétences techniques, je suis quelqu'un de rigoureuse, curieuse et à l'écoute. J'apprécie particulièrement le travail en équipe, la transmission d'informations claires et le fait de rendre des résultats compréhensibles pour des personnes non spécialistes.</p>
+            <p>À court terme, mon objectif est de consolider mes acquis en poursuivant en BUT3 Science des Données. À plus long terme, je souhaite évoluer vers un métier lié à la data, où je pourrai aider à prendre des décisions à partir de données fiables et bien exploitées.</p>
         </div>
         
         <div class="section">
@@ -692,10 +708,42 @@ J’ai participé à la modélisation d’une base de données avec 17 entités 
                 </div>
             </div>
         </div>
+
+        <!-- Nouvelle section : Qualités et valeurs individuelles -->
+        <div class="section">
+            <h2>Mes qualités et valeurs</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Qualités personnelles</h3>
+                    <ul class="skill-list">
+                        <li>Rigueur et sens du détail dans le code comme dans les analyses</li>
+                        <li>Curiosité : envie de comprendre le « pourquoi » technique derrière les outils</li>
+                        <li>Capacité d'apprentissage autonome (documentation, tutoriels, projets personnels)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Relationnel et travail d'équipe</h3>
+                    <ul class="skill-list">
+                        <li>Écoute et prise en compte des besoins des autres membres de l'équipe</li>
+                        <li>Habitude de reformuler et vulgariser les éléments techniques</li>
+                        <li>Respect des délais et engagement sur les tâches confiées</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Valeurs</h3>
+                    <ul class="skill-list">
+                        <li>Sens du service (renforcé par mon stage dans la fonction publique)</li>
+                        <li>Goût pour la qualité de la donnée et la fiabilité des résultats</li>
+                        <li>Envie de travailler sur des projets utiles pour les utilisateurs finaux</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         
         <div class="section">
             <div class="stage-section">
                 <h2>Mon stage - DGFiP (ESI Paris)</h2>
+                <p>La Direction Générale des Finances Publiques (DGFiP) est une administration centrale du ministère de l'Économie et des Finances qui gère notamment l'impôt, la dépense publique et la comptabilité de l'État. L'ESI Paris est l'un de ses centres informatiques, chargé d'assurer le bon fonctionnement et l'évolution des infrastructures techniques au service des usagers et des agents.</p>
                 <p>Mon stage m'a permis de découvrir les métiers de l'exploitation dans un environnement exigeant (systèmes, réseaux, stockage, sauvegarde, restauration et gestion de la donnée).</p>
                 <p>J'ai participé à l'administration réseau (DNS, VPN, NAT), à la gestion de serveurs (Cobbler, Puppet), à la virtualisation (OpenNebula), aux sauvegardes et stockage (TINA, SAN), et à des projets de migration et sécurisation.</p>
                 
@@ -747,11 +795,20 @@ J’ai participé à la modélisation d’une base de données avec 17 entités 
                 </div>
             </div>
         </div>
+
+        <!-- Nouvelle section : Projection professionnelle post-BUT -->
+        <div class="section section-alt">
+            <h2>Projet professionnel et poursuite d'études</h2>
+            <p>À la suite de mon BUT2 puis de mon BUT3 Science des Données, je souhaite continuer à me spécialiser dans le domaine de la data.</p>
+            <p>À moyen terme, je m'oriente vers une poursuite d'études en master orienté data (data science, statistique décisionnelle, MIAGE) ou en école d'ingénieurs spécialisée dans les systèmes d'information et la donnée.</p>
+            <p>Sur le plan métier, je me projette vers des fonctions telles que <strong>data analyst</strong> ou, à plus long terme, <strong>ingénieur data</strong> : des postes où l'on collecte, nettoie et analyse les données pour aider les équipes métier à prendre des décisions argumentées.</p>
+            <p>Les compétences acquises en BUT TI (infrastructures, systèmes, réseaux) et en Science des Données (statistiques, modélisation, visualisation) constituent pour moi un socle solide pour construire ce projet professionnel.</p>
+        </div>
         
         <div class="section section-alt">
             <h2>Conclusion</h2>
-            <p>Cette année en BUT Passerelle TI m'a permis d'énormément progressé : techniquement (programmation, données, systèmes et réseaux), humainement (collaboration, adaptation), et professionnellement (expérience en environnement réel).</p>
-            <p>Je retiens que je suis capable de mener un projet complet, de travailler efficacement en équipe et de tirer parti des données pour en faire un outil de décision.</p>
+            <p>Cette année en BUT Passerelle TI m'a permis d'énormément progresser : techniquement (programmation, données, systèmes et réseaux), humainement (collaboration, adaptation), et professionnellement (expérience en environnement réel).</p>
+            <p>Je retiens que je suis capable de mener un projet complet, de travailler efficacement en équipe et de tirer parti des données pour en faire un outil d'aide à la décision.</p>
             <p>La suite logique pour moi est de continuer en BUT3 Science des Données et de me spécialiser dans l'analyse et la valorisation des données, tout en gardant ma polyvalence comme un atout.</p>
         </div>
     </div>
