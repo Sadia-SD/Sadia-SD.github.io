@@ -458,6 +458,52 @@
     transform: translateY(-2px);
 }
 
+/* Style du sommaire */
+
+.stage-section a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.stage-section a:hover {
+    color: var(--secondary);
+    padding-left: 5px;
+}
+
+.stage-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.stage-section li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.sommaire-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.sommaire-nav a {
+    text-decoration: none;
+    background: white;
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: 0.25s;
+}
+
+.sommaire-nav a:hover {
+    background: var(--secondary);
+    color: white;
+}
 
     </style>
 </head>
@@ -478,21 +524,23 @@
 
 <h2>Sommaire</h2>
 
-<ul class="skill-list">
-<li><a href="#intro">Introduction</a></li>
-<li><a href="#alternance">Mon alternance</a></li>
-<li><a href="#culture">Culture d'entreprise</a></li>
-<li><a href="#stage">Mon stage</a></li>
-<li><a href="#projets">Mes projets</a></li>
-<li><a href="#competences">Compétences</a></li>
-<li><a href="#valeurs">Qualités et valeurs</a></li>
-<li><a href="#fierte">Ce dont je suis le plus fier</a></li>
-<li><a href="#projetpro">Projet professionnel</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-</ul>
+<nav class="sommaire-nav">
+<a href="#intro">Introduction</a>
+<a href="#alternance">Alternance</a>
+<a href="#culture">Culture entreprise</a>
+<a href="#stage">Stage</a>
+<a href="#projets">Projets</a>
+<a href="#competences">Compétences</a>
+<a href="#valeurs">Valeurs</a>
+<a href="#fierte">Fierté</a>
+<a href="#projetpro">Projet pro</a>
+<a href="#conclusion">Conclusion</a>
+</nav>
 
 </div>
 </div>
+
+
     <a href="images/CV_CISSE_Sadia.pdf" class="cv-button" download>
     📄 Télécharger mon CV
 </a>
